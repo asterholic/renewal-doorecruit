@@ -1,0 +1,601 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+body{
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Noto Sans KR', '돋움', '굴림', sans-serif;
+    background-image: url(../images/doorec-bg_img.jpg);
+    background-position: 50% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#wrap,.wrapper{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header{
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 83px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+header>.wrapper{
+    position: relative;
+    z-index: 1000;
+}
+
+header .logo{
+    width: 142px;
+    background-image: url(../images/doorec-header-logo_img.gif);
+}
+
+header .logo>a{
+    display: block;
+    height: 83px;
+    text-indent: -9999px;
+}
+
+/* 메인메뉴 영역 (gnb, dep1~2) */
+header .mainmnu{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -25px;
+}
+
+header .mainmnu>.gnb{
+    display: flex;
+}
+
+header .mainmnu>.gnb>li{
+    position: relative;
+}
+
+header .mainmnu>.gnb>li>a{
+    display: block;
+    height: 67px;
+    padding: 0 47px 0 47px;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+}
+
+header .mainmnu>.gnb>li .gnb-dep1{
+    display: none; /* gnb hover 시 출현 */
+    position: absolute;
+    top: 67px;
+    width: 100%;
+    height: 248px;
+    border-left: 1px solid #dedede;
+    box-sizing: border-box;
+    z-index: 500;
+}
+
+header .mainmnu>.gnb>li:last-child .gnb-dep1{border-right: 1px solid #dedede;}
+
+header .mainmnu>.gnb>li .gnb-dep1>li{
+    position: relative;
+    width: 100%;
+}
+
+header .mainmnu>.gnb>li .gnb-dep1>li:first-child{margin-top: 8px;}
+
+header .mainmnu>.gnb>li .gnb-dep1>li>a{
+    display: block;
+    height: 32px;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+}
+
+/* 마우스 hover 시 하이라이트 마킹 표시 */
+header .mainmnu>.gnb>li .gnb-dep1 .marking{
+    transition: all 0.3s;
+}
+
+header .mainmnu>.gnb>li .gnb-dep1 .gnb-dep2 .marking{display: inline-block;}
+
+header .mainmnu>.gnb>li .gnb-dep1 .marking:hover{
+    color: #0050a2;
+    transform: scale(1.05);
+}
+
+/* 입사지원-My Page 메뉴 옆 상세메뉴 아이콘 */
+header .mainmnu>.gnb>li .gnb-dep1 .toggle{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 4px;
+    background-image: url(../images/doorec-gnb-detail_btn.png);
+    background-size: contain;
+    transition: all 0.2s;
+}
+
+header .mainmnu>.gnb>li .gnb-dep1 .marking:hover>.toggle{
+    background-image: url(../images/doorec-gnb-detail_btn_hover.png);
+}
+
+/* 아이콘 클릭 시 'rotated' class 부여 및 180도 회전 */
+header .mainmnu>.gnb>li .gnb-dep1 .toggle.rotated{
+    transform: rotate(180deg);
+}
+
+/* 입사지원-My Page 하위메뉴 */
+header .mainmnu>.gnb>li .gnb-dep1 .gnb-dep2{
+    display: none; /* 활성화 시 출현 */
+    position: absolute;
+    left: -1px;
+    top: 32px;
+    width: 101%;
+    background-color: #e7e7e7;
+}
+
+header .mainmnu>.gnb>li .gnb-dep1 .gnb-dep2>li:first-child{margin-top: 10px;}
+header .mainmnu>.gnb>li .gnb-dep1 .gnb-dep2>li:last-child{margin-bottom: 10px;}
+
+header .mainmnu>.gnb>li .gnb-dep1 .gnb-dep2>li>a{
+    display: block;
+    height: 24px;
+    padding-left: 24px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+/* gnb 서브메뉴 배경 */
+header>.bg{
+    display: none; /* gnb hover 시 출현 */
+    position: absolute;
+    top: 83px;
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+} /* end of header */
+
+/* 본문 부분 */
+.cont{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 790px;
+    margin-bottom: 50px;
+    padding-top: 83px;
+}
+
+/* 본문 - 채용공고 슬라이드 */
+#slides{
+    position: relative;
+    width: 100%;
+    height: 480px;
+}
+
+#slides>h2{text-indent: -9999px;}
+
+#slides>.jobs{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 400px;
+    top: 56%;
+    width: calc(400px * 14 + 200px * 13);
+    height: 300px;
+    margin-top: -150px;
+}
+
+#slides>.jobs>li{
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    opacity: 0.5;
+}
+
+#slides>.jobs>li.on{transform: scale(1.1);opacity: 1;}
+
+#slides>.jobs>li:after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 300px;
+    content: '';
+}
+
+#slides>.jobs>li.experienced:after{background-color: #0050a2;}
+#slides>.jobs>li.contract:after{background-color: #15bdee;}
+
+#slides>.jobs>li>.career{
+    position: absolute;
+    left: 44px;
+    top: 24px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#slides>.jobs>li.experienced>.career{color: #0050a2;}
+#slides>.jobs>li.contract>.career{color: #15bdee;}
+
+#slides>.jobs>li>.corp{
+    position: absolute;
+    left: 44px;
+    top: 64px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#slides>.jobs>li>.jobtitle{
+    position: absolute;
+    left: 44px;
+    top: 102px;
+    width: 336px;
+    color: #525252;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#slides>.jobs>li>.date{
+    position: absolute;
+    left: 44px;
+    top: 256px;
+    color: #525252;
+    font-size: 18px;
+}
+
+#slides>.jobs>li>.date:before{
+    font-size: 14px;
+    content: '~ ';
+}
+
+#slides>.jobs>li>.count{
+    position: absolute;
+    left: 44px;
+    top: 220px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#slides>.jobs>li.experienced>#count{color: #0050a2;}
+#slides>.jobs>li.contract>#count{color: #15bdee;}
+
+#slides>.jobs>li>.apply{
+    display: none;
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    width: 120px;
+}
+
+#slides>.jobs>li.experienced>.apply{background-color: #0050a2;}
+#slides>.jobs>li.contract>.apply{background-color: #15bdee;}
+
+#slides>.jobs>li.on>.apply{display: block;}
+
+#slides>.jobs>li>.apply>a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+#slides>.prev,
+#slides>.next{
+    display: block;
+    position: absolute;
+    top: 56%;
+    width: 60px;
+    margin-top: -30px;
+    transition: all 0.2s ease-in-out;
+}
+
+#slides>.prev{
+    left: 40px;
+    background-image: url(../images/doorec-slides-left_btn.png);
+}
+#slides>.next{
+    right: 40px;
+    background-image: url(../images/doorec-slides-right_btn.png);
+}
+
+#slides>.prev:hover{transform: translateX(-10px);}
+#slides>.next:hover{transform: translateX(10px);}
+
+#slides>.prev>a,
+#slides>.next>a{
+    display: block;
+    height: 60px;
+    text-indent: -9999px;
+}
+
+#slides>.classify{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 690px;
+    height: 60px;
+    margin-left: -845px;
+    padding: 0 720px 0 280px;
+    background-color: #fff8;
+}
+
+#slides>.classify>li{
+    margin-right: 20px;
+}
+
+#slides>.classify>li:nth-child(1){width: 100px;}
+#slides>.classify>li:nth-child(2){width: 160px;}
+#slides>.classify>li:nth-child(3){width: 100px;}
+#slides>.classify>li:nth-child(4){width: 270px;margin-right: 0;}
+
+#slides>.classify>li:after{
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    content: '';
+    transition: all 0.2s;
+}
+
+#slides>.classify>li:nth-child(1):after{width: 100px;background-color: #666;}
+#slides>.classify>li:nth-child(2):after{width: 160px;background-color: #01a685;}
+#slides>.classify>li:nth-child(3):after{width: 100px;background-color: #0050a2;}
+#slides>.classify>li:nth-child(4):after{width: 270px;background-color: #15bdee;}
+
+#slides>.classify>li.on:after,
+#slides>.classify>li:hover:after{
+    height: 8px;
+}
+
+#slides>.classify>li>a{
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 70px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+#slides>.classify>li:nth-child(1)>a{color: #666;}
+#slides>.classify>li:nth-child(2)>a{color: #01a685;}
+#slides>.classify>li:nth-child(3)>a{color: #0050a2;}
+#slides>.classify>li:nth-child(4)>a{color: #15bdee;}
+
+#slides>.classify>li.on>a,
+#slides>.classify>li:hover>a{
+    line-height: 65px;
+}
+
+#slides>.classify>li .guide{
+    display: none;
+    position: relative;
+    top: 24px;
+    height: 18px;
+    margin-left: 8px;
+    padding: 0 8px;
+    color: #fff;
+    font-size: 10px;
+    line-height: 18px;
+    border-radius: 9px;
+}
+
+#slides>.classify>li:nth-child(1) .guide{background-color: #666;}
+#slides>.classify>li:nth-child(2) .guide{background-color: #01a685;}
+#slides>.classify>li:nth-child(3) .guide{background-color: #0050a2;}
+#slides>.classify>li:nth-child(4) .guide{background-color: #15bdee;}
+
+#slides>.classify>li.on .guide{display: block;}
+
+#slides>.notfound{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    width: 400px;
+    height: 240px;
+    margin-left: -200px;
+    margin-top: -120px;
+    background-color: #fffc;
+    border-radius: 50px;
+}
+
+#slides>.notfound>p{
+    width: 100%;
+    font-size: 24px;
+    line-height: 240px;
+    text-align: center;
+}
+
+#slides>.more{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 180px;
+}
+
+#slides>.more>a{
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+#slides>.more>a:before{
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    background-image: url(../images/doorec-slides-more_ico.png);
+    transition: all 0.2s;
+    content: '';
+}
+
+#slides>.more:hover>a:before{right: 25px;}
+
+/* 본문 - 공지사항 */
+#notice{
+    position: relative;
+    width: 540px;
+    height: 250px;
+    margin-top: 60px;
+    margin-right: 40px;
+    background-color: #0050a2cc;
+}
+
+#notice>.title{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: #fff;
+    font-size: 24px;
+}
+
+#notice>.title:after{
+    display: block;
+    position: absolute;
+    right: -20px;
+    top: 55%;
+    width: 1px;
+    height: 20px;
+    margin-top: -10px;
+    background-color: #fff;
+    content: '';
+}
+
+#notice>.notice-list{
+    position: absolute;
+    left: 20px;
+    top: 70px;
+}
+#notice>.notice-list>li{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    color: #fff;
+}
+#notice>.notice-list>li>a{
+    color: #fff;
+    font-size: 14px;
+}
+
+#notice>.more{
+    position: absolute;
+    left: 136px;
+    top: 28px;
+    font-size: 14px;
+}
+
+#notice>.more>a{
+    color: #fff;
+}
+
+#notice>.notice-list>li>a:hover,
+#notice>.more>a:hover{
+    color: #0399da;
+}
+
+/* 본문 - 입사지원관리 */
+#mypage{
+    position: relative;
+    width: 300px;
+    height: 250px;
+    margin-top: 60px;
+    margin-right: 20px;
+    background-color: #15bdeecc;
+    background-image: url(../images/doorec-article-mypage_img.png);
+    background-position: 80% 80%;
+    background-size: 36%;
+    background-repeat: no-repeat;
+    transition: all 0.2s;
+}
+
+#mypage>h2>a,
+#inquiry>h2>a{
+    display: block;
+    height: 230px;
+    padding-top: 20px;
+    padding-left: 20px;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* 본문 - 채용문의 */
+#inquiry{
+    width: 300px;
+    height: 250px;
+    margin-top: 60px;
+    background-color: #01a685cc;
+    background-image: url(../images/doorec-article-inquiry_img.png);
+    background-position: 80% 80%;
+    background-size: 36%;
+    background-repeat: no-repeat;
+    transition: all 0.2s;
+}
+
+#mypage:hover,
+#inquiry:hover{
+    background-position: 80% 78%;
+} /* end of articles */
+/* end of contents */
+
+/* 푸터 */
+footer{
+    width: 100%;
+    height: 120px; /* 임시 */
+    color: #444;
+    background-color: #fff;
+}
+
+footer>.wrapper{position: relative;height: 100%;}
+
+footer .logo{
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    width: 100px;
+    height: 39px;
+    margin-top: -20px;
+    background-image: url(../images/doorec-footer-logo_img.gif);
+}
+
+footer .logo>a{
+    display: block;
+    height: 39px;
+    text-indent: -9999px;
+}
+
+footer address{
+    position: absolute;
+    left: 280px;
+    top: 38px;
+}
+
+footer .fnb{
+    display: flex;
+    position: absolute;
+    left: 280px;
+    top: 66px;
+}
+footer .fnb>li{
+    padding: 0 8px;
+    border-right: 1px solid #444;
+}
+footer .fnb>li:nth-child(1){padding-left: 0;}
+footer .fnb>li:nth-child(2){padding-right: 0;border: none;}
+footer .fnb>li>a:hover{color: #0050a2;}
